@@ -1,0 +1,100 @@
+<html>
+<head>
+	<meta charset = "utf-8">
+	<title>AirCS206</title>
+
+	<script>
+		var seats = {,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+		var passenger = 0;	
+		var section,seat,name,price;
+
+		fuction start()
+		{
+			section = document.getElementById("section");
+			seat = parseInt(document.getElementById("seat"));
+			name = document.getElementById("fullname");
+			var button = document.getElementById("Submit");
+			button.addEventListener("click",price(section),false);
+		}
+		fuction process()
+		{
+			switch(section)
+			case"A": seat = seat; break;
+			case"B": seat = seat+5; break;
+			case"C": seat = seat+10; break;
+			if(seats[seat]==0)
+			{
+				seats[seat] = 1;
+				passenger++;
+				if(passenger == 15)
+					end;
+				print;
+			}
+			else
+			{
+				window.alert( "Sorry this seat has been chosen" );
+				location=location;	
+			}
+		}
+		fuction price()
+		{
+			price;
+			if(section.equals("A"))
+				price = Math.floor(101+Math.random()*100);
+			else
+				price = Math.floor(101+Math.random()*200);
+			windows.alert("The price for your ticket is "+price+"press the ok to proceed.");
+			process;
+		}
+		fuction print()
+		{
+			document.writeln("Your name: "+name);
+			document.writeln("Your seat: "+section+seat);
+			document.writeln("Price: "+price);
+			document.writeln("Thank you for choosing Air CS206!");
+		}
+		fuction end()
+		{
+			document.writeln("Thank you for choosing Air CS206!");
+			document.writeln("The information for next flight will be available soon.");
+		}
+		
+	</script>
+
+</head>
+<body>
+	<form>
+	<h1>Welcome to Air CS206!</h1>
+	<p>
+		<label>
+		Please enter your name: 
+		<input id = "fullname" name = "name" type = "text" size = "25">
+		</label>
+	</p>
+	<p>
+		<label>
+		Please choose the section you want:
+		<select id = "section" name = "sections">
+			<option>A</option>	
+			<option>B</option>	
+			<option>C</option>	
+		</label>
+	</p>
+	<p>
+		<label>
+		Please choose the seat you want:
+		<select id = "seat" name = "seats">
+			<option>1</option>	
+			<option>2</option>	
+			<option>3</option>
+			<option>4</option>	
+			<option>5</option>
+		</label>
+	</p>
+	<p>
+		<input id = "submited" type = "submit" value = "Submit">
+		<input type = "reset" value = "Clear"> 
+	</p>
+	</form>
+</body>
+</html>

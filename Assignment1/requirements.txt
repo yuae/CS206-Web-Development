@@ -1,0 +1,13 @@
+1) all the pages are connected and have a meaningful common theme.
+
+2) at least one hyperlink
+
+3) at least one image
+
+4) use button navigation
+
+5) at least one unordered list and one ordered list
+
+6) at least one table
+
+7) at least one form

@@ -1,0 +1,27 @@
+Implement the flight booking website you did in Assignment 3 again 
+using PHP.
+
+The functionality of Assignment 4 is the same with Assignment 3 with 
+the following specific requirements:
+
+
+All the seats of a same section should have the same price.
+
+A user can only specify the section he/she wants, but he/she cannot 
+specify the seat number. The reason is that choosing a seat is an extra 
+service that should be arranged separately.
+
+
+Please notice that no Javascript is allowed in this assignment. You may 
+beautify your website with some Javascript code in other assignments, but 
+please do not use Javascript at all in this assignment.
+
+
+A form should be used to send the request over to the server. A session 
+should be used to hold data.
+
+
+You complete the assignment by making your website working. The date/time 
+of your last update to your online files is considered the assignment 
+submission time. Please do not make changes to your files after your 
+submission.  

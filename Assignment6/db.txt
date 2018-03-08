@@ -1,0 +1,26 @@
+CREATE TABLE STUDENTS(
+ID Integer PRIMARY KEY,
+Password varchar(30) NOT NULL
+);
+
+Insert into STUDENTS (ID, Password) values (123456, 654321);
+
+CREATE TABLE id123456(
+Course varchar(20) PRIMARY KEY
+);
+
+Insert into id123456 (Course) values ('CS1910');
+Insert into id123456 (Course) values ('MATH1910');
+
+CREATE TABLE COURSES(
+Course varchar(20) PRIMARY KEY,
+Total Integer NOT NULL,
+Remain Integer NOT NULL
+);
+
+Insert into COURSES (Course,Total,Remain) values ('CS1910',50,39);
+Insert into COURSES (Course,Total,Remain) values ('MATH1910',30,30);
+Insert into COURSES (Course,Total,Remain) values ('CS1610',20,10);
+Insert into COURSES (Course,Total,Remain) values ('CS1920',50,49);
+Insert into COURSES (Course,Total,Remain) values ('MATH2420',20,10);
+Insert into COURSES (Course,Total,Remain) values ('MATH12610',30,30);

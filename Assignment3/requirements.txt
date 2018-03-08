@@ -1,0 +1,41 @@
+Build your website to have the following functionalities using Javascript:
+
+
+A small airline has purchased a computer for its automated reservations system. 
+You have been asked to program the new system. 
+You are to write a program to sell seats on each flight of the airline¡¯s only plane.
+
+
+The capacity of this plane is 15 seats. And these seats are classified into three sections: 
+Section A (seat 1-5), Section B (seat 6-10), and Section C (seat 11-15). 
+The price of each section is not a fixed value. It always fluctuates. The price of Section A 
+is in the range of $100 to $200; 
+the prices of Section B and Section C are in the range of $100 to $300.
+
+
+Your program should display the sections and indicate if each section is available, and the 
+price for that section at that moment. 
+The prices of the sections can be simulated by a random function. The order of the sections 
+displayed should be in the ascending order of the prices.
+
+
+The user may choose which section he/she wants to buy. The chosen seat should be marked as 
+unavailable and a boarding pass should be displayed. 
+The boarding pass should have the passenger¡¯s name, section id, seat number, and the price.  
+
+
+Ticket payments can be ignored. As long as you choose a ticket, the system considers the price 
+has been paid.
+
+
+
+Use an array to represent the seating chart of the plane. Initialize all the elements of the array 
+to 0 to indicate that all the seats are empty. 
+As each seat is assigned, set the corresponding elements of the array to 1 to indicate that the seat 
+is no longer available. Your program should, of course, 
+never assign a seat that has already been sold. If no any seats are available, then display the 
+message "The information for next flight will be available soon."
+
+
+The website code should be organized using JavaScript functions. An array must be used. The home 
+page must indicates which browser was used in testing the code.

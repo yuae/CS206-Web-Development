@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset = "utf-8">
+      <title>Air CS206</title> 
+      <style type = "text/css">
+         
+         table         { width: 200px;
+                         border-collapse:collapse; 
+                         background-color: lightblue; }
+         table, td, th { border: 1px solid black; 
+                         padding: 4px; 
+                         margin-top: 20px; }
+         th            { text-align: left; 
+                         color: white;
+                         background-color: darkblue; }
+      </style>
+      <script>
+      	 var seats = [,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+         var total = 0;
+         var priceA;
+         var priceB;
+         var priceC;
+         var section,seat,name,price;
+         var availableA = "Yes";
+         var availableB = "Yes";
+         var availableC = "Yes";
+
+         // register button event handler
+         function start()
+         {
+            var button = document.getElementById( "book" );
+            button.addEventListener( "click", process, false );
+            updatePriceTable();
+            updateSeatTable();
+         }
+
+         
+         function process()
+         {
+           	 name = window.prompt("Please enter your name:");
+        	 var sectionValue = window.prompt("Please enter the section you want to book:");
+        	 section = sectionValue.charAt(0).toUpperCase();
+        	 var seatValue = window.prompt("Please enter the seat you want to book(A:1-5,B:6-10,C:11-15):");
+        	 seat = parseInt(seatValue);
+        	 if(section=='A'||section=='B'||section=='C')
+        	 {
+        	 	if(seat>0||seat<16)
+        		 	if(seats[seat]==0)
+        	 		{ 
+        		 		seats[seat]=1;
+        		 
+        		 		if(seat<6)
+        			 		price = priceA;
+        		 		else if(seat<11&&seat>5)
+        			 		price = priceB;
+        		 		else
+        			 		price = priceC;
+        		 
+        		 		total++;
+            	 		boardingPass();
+            	 		
+        	 		}
+        	 		else
+        	 		{
+        		 		window.alert("This seat has already been booked");
+        	 		}
+        	 	else
+        	 		window.alert("Please enter valid seat number.")
+        	 }
+        	 else
+        		 window.alert("Please enter valid section.")
+        	 updatePriceTable();
+        	 updateSeatTable();
+        	 if(total==15)
+ 	 			end();
+         } 
+   
+         
+         function updatePriceTable()
+         {
+            var tableDiv = document.getElementById( "priceTableDiv" );
+            priceA = Math.floor(100+Math.random()*100);
+			priceB = Math.floor(100+Math.random()*200);
+			priceC = Math.floor(100+Math.random()*200);
+			checkAvailabe();
+
+			if(Math.max(priceA,Math.max(priceB,priceC))==priceA)
+			{	
+				if(Math.max(priceB,priceC)==priceB)
+				{
+            		tableDiv.innerHTML = "<table>" + 
+               		"<caption>Price</caption>" +
+               		"<thead><th>Section</th><th>Price</th>" + 
+               		"<th>Available</th></thead>" +
+               		"<tbody><tr><td>A</td><td>" + priceA + "</td><td>" + 
+               		availableA + "</td></tr>" +
+               		"<tr><td>B</td><td>" + priceB + "</td><td>" + 
+               		availableB + "</td></tr>" +
+               		"<tr><td>C</td><td>" + priceC + "</td><td>" + 
+               		availableC + "</td></tr>" +
+               		"</tbody></table>";
+               	}
+				else
+				{
+					tableDiv.innerHTML = "<table>" + 
+               		"<caption>Price</caption>" +
+               		"<thead><th>Section</th><th>Price</th>" + 
+               		"<th>Available</th></thead>" +
+               		"<tbody><tr><td>A</td><td>" + priceA + "</td><td>" + 
+               		availableA + "</td></tr>" +
+               		"<tr><td>C</td><td>" + priceC + "</td><td>" + 
+               		availableC + "</td></tr>" +
+               		"<tr><td>B</td><td>" + priceB + "</td><td>" + 
+               		availableB + "</td></tr>" +
+               		"</tbody></table>";
+				}
+			}
+			else if(Math.max(priceA,Math.max(priceB,priceC))==priceB)
+			{
+				if(Math.max(priceA,priceC)==priceA)
+				{
+					tableDiv.innerHTML = "<table>" + 
+               		"<caption>Price</caption>" +
+               		"<thead><th>Section</th><th>Price</th>" + 
+               		"<th>Available</th></thead>" +
+               		"<tbody><tr><td>B</td><td>" + priceB + "</td><td>" + 
+               		availableB + "</td></tr>" +
+               		"<tr><td>A</td><td>" + priceA + "</td><td>" + 
+               		availableA + "</td></tr>" +
+               		"<tr><td>C</td><td>" + priceC + "</td><td>" + 
+               		availableC + "</td></tr>" +
+               		"</tbody></table>";
+				}
+				else
+				{
+					tableDiv.innerHTML = "<table>" + 
+               		"<caption>Price</caption>" +
+               		"<thead><th>Section</th><th>Price</th>" + 
+               		"<th>Available</th></thead>" +
+               		"<tbody><tr><td>B</td><td>" + priceB + "</td><td>" + 
+               		availableB + "</td></tr>" +
+               		"<tr><td>C</td><td>" + priceC + "</td><td>" + 
+               		availableC + "</td></tr>" +
+               		"<tr><td>A</td><td>" + priceA + "</td><td>" + 
+               		availableA + "</td></tr>" +
+               		"</tbody></table>";	
+				}
+			}
+			else
+			{
+				if(Math.max(priceA,priceB)==priceA)
+				{
+					tableDiv.innerHTML = "<table>" + 
+               		"<caption>Price</caption>" +
+               		"<thead><th>Section</th><th>Price</th>" + 
+               		"<th>Available</th></thead>" +
+               		"<tbody><tr><td>C</td><td>" + priceC + "</td><td>" + 
+               		availableC + "</td></tr>" +
+               		"<tr><td>A</td><td>" + priceA + "</td><td>" + 
+               		availableA + "</td></tr>" +
+               		"<tr><td>B</td><td>" + priceB + "</td><td>" + 
+               		availableB + "</td></tr>" +
+               		"</tbody></table>";	
+				}
+				else
+				{
+					tableDiv.innerHTML = "<table>" + 
+               		"<caption>Price</caption>" +
+               		"<thead><th>Section</th><th>Price</th>" + 
+               		"<th>Available</th></thead>" +
+               		"<tbody><tr><td>C</td><td>" + priceC + "</td><td>" + 
+               		availableC + "</td></tr>" +
+               		"<tr><td>B</td><td>" + priceB + "</td><td>" + 
+               		availableB + "</td></tr>" +
+               		"<tr><td>A</td><td>" + priceA + "</td><td>" + 
+               		availableA + "</td></tr>" +
+               		"</tbody></table>";	
+				}
+			}
+         } 
+         
+         function updateSeatTable()
+ 		{
+ 			var seatTable = document.getElementById("seatTableDiv");
+ 			
+ 			seatTable.innerHTML = "<table>"+
+ 			"<caption>Seats Condition</caption>"+
+ 			"<thead><th>Section</th><th>Seat</th>" + 
+             "<th>Booked</th></thead>" +
+             "<tbody><tr><td>A</td><td>1</td><td>" + 
+             seats[1] + "</td></tr>" +
+             "<tr><td>A</td><td>2</td><td>" + 
+             seats[2]+ "</td></tr>" +
+             "<tr><td>A</td><td>3</td><td>" + 
+             seats[3] + "</td></tr>" +
+             "<tr><td>A</td><td>4</td><td>" + 
+             seats[4] + "</td></tr>" +
+             "<tr><td>A</td><td>5</td><td>" + 
+             seats[5] + "</td></tr>" +
+             "<tr><td>B</td><td>6</td><td>" + 
+             seats[6] + "</td></tr>" +
+             "<tr><td>B</td><td>7</td><td>" + 
+             seats[7] + "</td></tr>" +
+             "<tr><td>B</td><td>8</td><td>" + 
+             seats[8] + "</td></tr>" +
+             "<tr><td>B</td><td>9</td><td>" + 
+             seats[9] + "</td></tr>" +
+             "<tr><td>B</td><td>10</td><td>" + 
+             seats[10] + "</td></tr>" +
+             "<tr><td>C</td><td>11</td><td>" + 
+             seats[11] + "</td></tr>" +
+             "<tr><td>C</td><td>12</td><td>" + 
+             seats[12] + "</td></tr>" +
+             "<tr><td>C</td><td>13</td><td>" + 
+             seats[13] + "</td></tr>" +
+             "<tr><td>C</td><td>14</td><td>" + 
+             seats[14] + "</td></tr>" +
+             "<tr><td>C</td><td>15</td><td>" + 
+             seats[15] + "</td></tr>" +
+             "</tbody></table>";
+ 		}
+         
+
+         function checkAvailabe()
+         {
+        	 var countA = 0;
+        	 var countB = 0;
+        	 var countC = 0;
+        	 for(var i = 1; i<6; i++)
+        	 {
+        	 	countA += seats[i];
+        	 	countB += seats[5+i];
+        	 	countC += seats[10+i];
+        	 }
+        	 if(countA == 5)
+        		 availableA = "No";
+        	 if(countB == 5)
+        		 availableB = "No";
+        	 if(countC == 5)
+        		 availableC = "No";
+        	        	 
+         } 
+         
+         function boardingPass()
+ 		 {
+        	 var tableDiv = document.getElementById( "boardingPass" );
+        	 tableDiv.innerHTML = "<table>" + 
+        		"<caption>BoardingPass</caption>" +
+        		"<thead><th>Name</th><th>Section</th><th>Seat</th>" + 
+        		"<th>Price</th></thead>" +
+        		"<tbody><tr><td>"+name+"</td><td>" + section + "</td><td>" + 
+        		seat + "</td><td>" + price + "</td></tr>"
+        		"</tbody></table>";	
+ 		 }
+         function end()
+         {
+        	 document.writeln("<h1>Thank you for choosing Air CS206.</p>");
+        	 document.writeln("<h2>The information for next flight will be available soon.</h2>");
+         }
+         
+         window.addEventListener( "load", start, false );
+      </script>
+   </head>
+   <body>
+   	  <h1>Welcome to Air CS206!</h1>
+   	  <p><div id = "priceTableDiv"></div></p>
+   	  <p><div id = "seatTableDiv"></div></p>
+      <p>
+      <form action = "#">
+         <input id = "book" type = "button" value = "Book a ticket">
+      </form>
+      </p>
+      <p><div id = "boardingPass"></div></p>
+   </body>
+</html>

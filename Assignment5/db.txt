@@ -1,0 +1,29 @@
+CREATE TABLE SEAT(
+SeatNumber Integer PRIMARY KEY,
+SeatAvailable Integer NOT NULL
+);
+
+Insert into SEAT (SeatNumber, SeatAvailable) values (1, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (2, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (3, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (4, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (5, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (6, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (7, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (8, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (9, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (10, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (11, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (12, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (13, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (14, 0);
+Insert into SEAT (SeatNumber, SeatAvailable) values (15, 0);
+
+CREATE TABLE available(
+Section varchar(2) PRIMARY KEY,
+Available int NOT NULL
+);
+
+Insert into available (Section, Available) values ('A', 0);
+Insert into available (Section, Available) values ('B', 0);
+Insert into available (Section, Available) values ('C', 0);
